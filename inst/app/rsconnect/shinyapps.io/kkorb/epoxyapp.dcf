@@ -1,0 +1,10 @@
+name: epoxyapp
+title:
+username: kkorb
+account: kkorb
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 15844087
+bundleId:
+url: https://kkorb.shinyapps.io/epoxyapp/
+version: 1

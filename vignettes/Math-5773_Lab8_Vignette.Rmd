@@ -1,0 +1,62 @@
+---
+title: "Math-5773_Lab8_Vignette"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Math-5773_Lab8_Vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(MATH5773Lab8KORB)
+```
+
+# Introduction
+
+We will conduct an analysis on the performance of various epoxy coatings.
+
+Reading in the data set we have:
+
+```{r}
+head(epoxy)
+```
+
+We can see that the data set consists of three columns, exposure time, epoxy system, and the corrosion rate. The exposure time is valued in days, with one equalling 24 hours, 60 equalling 60 days, and 120 equalling 120 days. The system is the type of epoxy and the application process. The table below details each system.
+
+| Coating System | 1st Layer                  | 2nd Layer                          |
+|----------------|----------------------------|------------------------------------|
+| S1             | Zinc dust                  | Epoxy paint, 100 micro-meters thick |
+| S2             | Zinc phosphate             | Epoxy paint, 100 micro-meters thick |
+| S3             | Zinc phosphate with mica   | Finish layer, 100 micro-meters thick |
+| S4             | Zinc phosphate with mica   | Finish layer, 200 micro-meters thick |
+
+The last variable corrosion rate (nanoamperes per square centimeter) was determined following exposure for each. observation.
+
+# Function: myrebase
+
+This function reassigns the reference levels for the SYSTEM and EXP-TIME factors, allowing for customized baseline comparisons in linear models.
+
+```{r}
+dfr <- myrebase(df = epoxy, SYSTEM_base = 2, EXP_base = 60)
+summary(lm(CORRATE ~ SYSTEM + `EXP-TIME`, data = dfr))
+```
+
+# Function: gginterval
+
+This function fits a linear model to the re-based data, plots corrosion rates by exposure time, and returns confidence intervals for the model coefficients.
+
+```{r}
+dfr <- myrebase(df = epoxy, SYSTEM_base = 2, EXP_base = 60)
+gginterval(dfr, alpha = 0.05)
+```
+
+# Conclusion
+
+These functions streamline the analysis of blocked experimental designs by allowing flexible reference level control and visual and inferential summaries.
