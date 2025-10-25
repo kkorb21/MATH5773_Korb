@@ -12,5 +12,7 @@
 #'   \item{CORRATE}{Numeric corrosion rate measured for each panel}
 #' }
 #'
+#' @importFrom MATH5773Lab8KORB
+#'
 #' @source https://www.amazon.com/Statistics-Engineering-Sciences-William-Mendenhall/dp/1498728855
 "epoxy"

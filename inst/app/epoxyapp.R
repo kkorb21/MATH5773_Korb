@@ -8,6 +8,7 @@
 #
 
 library(shiny)
+data(epoxy, package = "MATH5773Lab8KORB")
 
 ui <- fluidPage(
   titlePanel("Epoxy Corrosion Analysis"),
