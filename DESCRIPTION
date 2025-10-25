@@ -25,4 +25,4 @@ Suggests:
     knitr,
     rmarkdown
 VignetteBuilder: knitr
-Remotes: kkorb21/MATH5773Lab8KORB
+Remotes: kkorb21/MATH5773_Korb
