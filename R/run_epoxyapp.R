@@ -6,7 +6,10 @@
 #' @importFrom shiny shinyAppDir
 #'
 #' @examples
+#' \dontrun{
 #' run_epoxyapp()
+#' }
+
 run_epoxyapp <- function() {
   app_dir <- system.file('epoxyapp', package = "MATH5773Lab8KORB")
   shiny::shinyAppDir(appDir = app_dir)

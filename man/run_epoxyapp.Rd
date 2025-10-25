@@ -10,5 +10,7 @@ run_epoxyapp()
 Runs the interactive Shiny application that visualizes epoxy data.
 }
 \examples{
+\dontrun{
 run_epoxyapp()
+}
 }
